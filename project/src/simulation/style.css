@@ -13,7 +13,61 @@
   height: 100vh;
   position: relative; /* Esto es necesario si quieres que el canvas cubra toda la ventana */
 }
+@media (max-width: 768px) {
+  .control-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 85%;
+      height: 100vh;
+      border-radius: 0;
+      transform: translateX(100%);
+      padding: 1rem;
+      margin: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      /* Asegurar que el panel permanece por encima de otros elementos */
+      z-index: 1100;
+      /* Mejorar el scroll en móviles */
+      -webkit-overflow-scrolling: touch;
+  }
 
+  /* Prevenir que los inputs pierdan el foco al tocar */
+  .control-panel input,
+  .control-panel select,
+  .control-panel button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Aumentar el área táctil para los controles */
+  .control-group label,
+  .control-group input,
+  .control-group select,
+  .control-group button {
+      min-height: 44px; /* Recomendación de Apple para áreas táctiles */
+      padding: 10px;
+      margin: 5px 0;
+  }
+
+  /* Asegurar que los inputs sean más fáciles de tocar */
+  input[type="number"],
+  input[type="text"],
+  select {
+      font-size: 16px; /* Prevenir zoom en iOS */
+      padding: 8px;
+      margin: 2px 0;
+  }
+}
+
+/* Asegurar que el panel permanece visible cuando se interactúa con los inputs */
+.control-panel.visible {
+  transform: translateX(0) !important;
+}
+
+/* Prevenir que el fondo interactúe con los inputs */
+.control-panel.visible * {
+  pointer-events: auto;
+}
   
   .title-bar {
     position: fixed;
