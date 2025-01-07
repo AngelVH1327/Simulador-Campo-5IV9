@@ -59,6 +59,7 @@ export const Instrucciones = () => {
 
           <div className='instr-tips'>
             <p>Consejos:</p>
+            <p>La carga positiva es la roja, mientras que la negativa es la azul</p>
             <p>Usa diferentes combinaciones de cargas positivas y negativas para observar cómo afectan la forma del campo eléctrico.</p>
             <p>Experimenta con la distancia entre las cargas para ver cómo la proximidad influye en la intensidad del campo.</p>
           </div>
