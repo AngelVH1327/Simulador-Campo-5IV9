@@ -1,0 +1,617 @@
+
+  
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow: hidden;
+  }
+  
+  canvas {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* Esto es necesario si quieres que el canvas cubra toda la ventana */
+}
+
+  
+  .title-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, rgba(10,11,46,0.9) 0%, rgba(13,14,45,0.8) 100%);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,215,0,0.3);
+    box-shadow: 0 2px 20px rgba(255,215,0,0.1);
+  }
+  
+  .title-bar h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .title-bar h1::before {
+    content: "⚡";
+    font-size: 1.8rem;
+  }
+  
+  .gui-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+.dg.main {
+    width: 300px !important;
+}
+
+  /* .dg.main {
+    background: var(--panel-bg) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,215,0,0.2);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+  } */
+  
+  .dg .title {
+    background: linear-gradient(90deg, var(--primary-color) 0%, #ffa500 100%) !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  .dg .cr.number input[type=text] {
+    background: rgba(10,11,46,0.6) !important;
+    border: 1px solid rgba(255,215,0,0.2) !important;
+    border-radius: 4px;
+    color: var(--text-light) !important;
+    padding: 2px 6px;
+  }
+  
+  .dg .c .slider {
+    background: rgba(10,11,46,0.6) !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255,215,0,0.2) !important;
+  }
+  
+  .dg .cr.function .property-name {
+    background: linear-gradient(90deg, var(--primary-color) 0%, #ffa500 100%) !important;
+    font-weight: 500;
+  }
+  
+  .dg .cr.function:hover .property-name {
+    background: linear-gradient(90deg, #ffa500 0%, var(--primary-color) 100%) !important;
+  }
+  
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.5s;
+  }
+  
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 20px rgba(255,215,0,0.3);
+  }
+  
+  .loading-text {
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .tooltip {
+    position: absolute;
+    background: var(--panel-bg);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid rgba(255,215,0,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+  }
+  
+  .measurement-label {
+    position: absolute;
+    background: var(--panel-bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    pointer-events: none;
+    border: 1px solid rgba(255,215,0,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+  }
+  /* Panel de Control */
+.control-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background: rgba(10, 11, 46, 0.95);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+.panel-section {
+  margin-bottom: 20px;
+}
+
+.panel-section h3 {
+  margin: 0 0 10px 0;
+  color: #2196F3;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-group input[type="number"],
+.control-group select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: white;
+  padding: 5px;
+  width: 100px;
+}
+
+.control-group button {
+  background: #2196F3;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.control-group button:hover {
+  background: #1976D2;
+}
+
+.results {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.results p {
+  margin: 5px 0;
+}
+
+.control-tab:hover {
+  background: #1976D2;
+}
+
+/* Control Tab para móviles */
+.control-tab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #ffd700;
+  padding: 15px 5px;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .control-panel {
+      transform: translateX(100%);
+      right: 0;
+      top: 0;
+      height: 100vh;
+      margin: 0;
+      border-radius: 12px 0 0 12px;
+  }
+
+  .control-panel.visible {
+      transform: translateX(0);
+  }
+
+  .control-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .control-tab.panel-open {
+      right: 300px;
+  }
+}
+  .control-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--panel-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 320px;
+    color: var(--text-light);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,215,0,0.2);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    z-index: 1000;
+    max-height: 90vh;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.toggle-panel {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #ffa500 100%);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 2px 20px rgba(255,215,0,0.2);
+    border: 1px solid rgba(255,215,0,0.3);
+    color: var(--bg-dark);
+}
+
+.panel-section {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,215,0,0.1);
+    padding-bottom: 1rem;
+}
+
+.panel-section:last-child {
+    border-bottom: none;
+}
+
+.panel-section h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.control-group label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+input[type="number"], select {
+    background: rgba(10,11,46,0.6);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: var(--text-light);
+    width: 120px;
+    font-size: 0.9rem;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+}
+
+button {
+    background: linear-gradient(90deg, var(--primary-color) 0%, #ffa500 100%);
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    color: var(--bg-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+}
+
+.results {
+    background: rgba(10,11,46,0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,215,0,0.2);
+}
+
+.results p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .control-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        transform: translateX(100%);
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .control-panel.visible {
+        transform: translateX(0);
+    }
+
+    .toggle-panel {
+        display: block;
+    }
+
+    .panel-section {
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+    }
+
+    input[type="number"], select {
+        width: 130px;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .control-group label {
+        font-size: 1rem;
+    }
+
+    /* Ajustar título cuando el panel está abierto */
+    .title-bar {
+        z-index: 999;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .control-panel {
+        padding: 0.8rem;
+    }
+
+    .panel-section h3 {
+        font-size: 1rem;
+    }
+
+    input[type="number"], select {
+        width: 110px;
+        padding: 0.6rem;
+    }
+
+    .control-group label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para modo landscape en móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .control-panel {
+        padding: 0.8rem;
+        max-height: 100vh;
+    }
+
+    .panel-section {
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .panel-section h3 {
+        margin-bottom: 0.6rem;
+    }
+
+    .control-group {
+        gap: 0.6rem;
+    }
+}
+
+/* Scrollbar personalizado para el panel */
+.control-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.control-panel::-webkit-scrollbar-track {
+    background: rgba(10,11,46,0.6);
+}
+
+.control-panel::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.control-panel::-webkit-scrollbar-thumb:hover {
+    background: #ffa500;
+}
+
+/* Agregar estos nuevos estilos */
+
+.control-tab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--primary-color) 0%, #ffa500 100%);
+  padding: 1rem 0.5rem;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: -2px 0 15px rgba(255,215,0,0.2);
+  border: 1px solid rgba(255,215,0,0.3);
+  border-right: none;
+  display: none;
+  animation: pulse-glow 2s infinite;
+}
+
+.control-tab i {
+  color: var(--bg-dark);
+  font-size: 1.5rem;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: -2px 0 15px rgba(255,215,0,0.2); }
+  50% { box-shadow: -2px 0 20px rgba(255,215,0,0.4); }
+  100% { box-shadow: -2px 0 15px rgba(255,215,0,0.2); }
+}
+
+/* Modificar los media queries existentes */
+@media (max-width: 768px) {
+  .control-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 85%; /* Reducido del 100% para mejor UX */
+      height: 100vh;
+      border-radius: 0;
+      transform: translateX(100%);
+      padding: 1rem;
+      margin: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .control-panel.visible {
+      transform: translateX(0);
+  }
+
+  .control-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+  }
+
+  /* Animación de la pestaña cuando el panel está abierto */
+  .control-tab.panel-open {
+      right: 85%;
+      border-radius: 0 0 0 8px;
+      padding: 1rem 0.5rem;
+  }
+}
+
+#gui-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(28, 28, 35, 0.9);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#gui-container.hidden {
+  transform: translateX(110%);
+  opacity: 0;
+}
+
+/* Botón para mostrar/ocultar controles */
+#toggle-gui {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #4a90e2, #357abd);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#toggle-gui:hover {
+  background: linear-gradient(45deg, #357abd, #2868a0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  #gui-container {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+  
+  #gui-container.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

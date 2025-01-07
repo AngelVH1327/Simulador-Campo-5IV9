@@ -1,0 +1,73 @@
+/* Estilos generales */
+.page-container {
+    min-height: 100vh;
+    background-color: #f0e2e6;
+    padding-bottom: 2rem;
+}
+
+/* Header y navegación */
+.contenedor {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.contenedor img {
+    width: 3.5rem;
+    margin-left: 1.5rem;
+}
+
+.logo {
+    width: 12rem;
+    display: inline-block;
+}
+
+.menu {
+    color: #6b102e;
+    text-align: center;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-left: 4rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.menu:hover {
+    color: white;
+    background-color: #6b102e;
+    border-radius: 2rem;
+}
+
+.box {
+    border: 1rem solid #6b102e;
+}
+
+/* Contenido principal */
+.divSobre {
+    background-color: #fef7f7;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin: 1.25rem auto;
+    max-width: 75rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6b102e #fffcf2;
+}
+
+/* El resto de los estilos permanecen igual... */
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+    
+    .menu {
+        margin-left: 2rem;
+        font-size: 1.25rem;
+    }
+}

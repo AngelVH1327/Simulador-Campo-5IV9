@@ -1,0 +1,613 @@
+:root {
+    --color-principal: #6b102e;
+    --color-fondo: #fffcf2;
+    --color-texto: #333;
+    --color-hover: white;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (min-width: 1024px) {
+    .cuadro {
+        width: 2rem;
+    }
+}
+
+/* Medium screens: 2 boxes per row */
+@media screen and (max-width: 1024px) {
+    .cuadro {
+        width: 500%;
+    }
+}
+
+/* Small screens: stack the boxes vertically, each taking 100% width */
+@media screen and (max-width: 768px) {
+    .cuadro {
+        width: 00%;
+    }
+}
+
+/* Extra small screens: still stack vertically, but reduce padding and font size */
+@media screen and (max-width: 480px) {
+    .cuadro {
+        width: 100%;
+        padding: 2rem 1rem;  /* Reduce padding for smaller screens */
+        font-size: 1.25rem;   /* Smaller font size */
+    }
+}
+.xd {
+    background-color: #f0e2e6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffcf2;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+/* Header y navegación */
+.box {
+    border: 1rem solid #6b102e;
+}
+
+.menu {
+    color: #6b102e;
+    text-align: center;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-left: 4rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.menu:hover {
+    color: white;
+    background-color: #6b102e;
+    border-radius: 2rem;
+}
+
+/* Sección principal */
+.principal {
+    background-color: #fffcf2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+}
+
+.texto1 {
+    text-align: center;
+    color: black;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.texto1 h1 {
+    font-size: 5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.texto1 h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.principal img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+/* Botones */
+.Botones {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.Botones button.boton1,
+.Botones button.boton2 {
+    color: white;
+    background-color: #6b102e;
+    border-radius: 2rem;
+    text-align: center;
+    font-size: 1.75rem;
+    width: 20rem;
+    padding: 1.5rem 2.5rem;
+    border: 0.125rem solid #6b102e;
+    transition: all 0.3s ease;
+}
+
+.Botones button.boton1:hover {
+    color: #6b102e;
+    background-color: #fffcf2;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.Botones button.boton2 {
+    color: #6b102e;
+    background-color: #fffcf2;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.Botones button.boton2:hover {
+    color: white;
+    background-color: #6b102e;
+    border-color: white;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* Textos secundarios */
+.texto2 h1 {
+    font-size: 4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: black;
+    text-align: center;
+}
+
+.texto2 p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: black;
+    margin-top: 1rem;
+}
+
+.texto4 {
+    text-align: center;
+    margin-top: 3rem;
+    color: black;
+}
+
+.texto4 p {
+    font-size: 1.5rem;
+}
+
+/* Instrucciones */
+.inst {
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 90rem;
+}
+
+
+.cuadro {
+    background-color: #6b102e;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    width: 25rem;
+    padding: 3rem 2rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cuadro:hover {
+    transform: translateY(-0.25rem) scale(1.03);
+}
+
+/* Canvas y GUI */
+canvas {
+    display: block;
+}
+
+#gui {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Sección Teoría */
+.Teoria {
+    background-color: #fffcf2;
+    min-height: 100vh;
+    height: auto;
+    padding: 3rem 2rem;
+    overflow-y: visible;
+}
+
+.divTitulo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.divTitulo h1 {
+    font-size: 4.5rem;
+    color: black;
+    margin-bottom: 2rem;
+}
+
+.divLibros {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin: 0 auto;
+    max-width: 90rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.divResnick,
+.divSerway {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    max-width: 40rem;
+}
+
+.divResnick h2,
+.divSerway h2 {
+    font-size: 3rem;
+    color: #6b102e;
+    text-align: center;
+}
+
+.problema {
+    max-width: 100%;
+    height: auto;
+    border: 0.125rem solid #ccc;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.problema:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* Sección Sobre */
+.divSobre {
+    background-color: #fef7f7;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin: 1.25rem auto;
+    max-width: 75rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6b102e #fffcf2;
+}
+
+.divSobre::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.divSobre::-webkit-scrollbar-track {
+    background: #fffcf2;
+}
+
+.divSobre::-webkit-scrollbar-thumb {
+    background-color: #6b102e;
+    border-radius: 0.25rem;
+}
+
+.divTextoSobre {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.divProyecto {
+    text-align: center;
+}
+
+.divProyecto h1 {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 1.5rem;
+}
+
+.divProyecto p {
+    font-size: 1.25rem;
+    text-align: justify;
+    color: #555;
+    line-height: 1.6;
+}
+
+.divObj,
+.divProblematica,
+.divDesarrolladores {
+    background-color: #fef7f7;
+    padding: 2rem;
+    border-left: 0.3125rem solid #6b102e;
+    border-radius: 0.5rem;
+    color: #333;
+}
+
+.divObj h2,
+.divProblematica h2,
+.divFuncion h2,
+.divDesarrolladores h2 {
+    font-size: 2rem;
+    color: #6b102e;
+    margin-bottom: 1.5rem;
+}
+
+.divObj p,
+.divProblematica p,
+.divFuncion ul li {
+    font-size: 1.25rem;
+    color: black;
+    line-height: 1.6;
+}
+
+.divFuncion {
+    padding: 2rem;
+}
+
+.divFuncion ul {
+    margin-left: 2rem;
+    list-style: square;
+}
+
+.divFuncion ul li {
+    margin-bottom: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.divFuncion ul li:hover {
+    color: #6b102e;
+    cursor: pointer;
+}
+
+.divDesarrolladores ul {
+    margin-left: 2rem;
+    list-style: circle;
+}
+
+.divDesarrolladores ul li {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.divAgradecimientos {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-left: 0.3125rem solid #333;
+    border-radius: 0.5rem;
+    font-style: italic;
+}
+
+.divAgradecimientos h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.divAgradecimientos p {
+    font-size: 1.25rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Media Queries */
+@media screen and (max-width: 75rem) {
+    .texto1 h1 {
+        font-size: 4rem;
+    }
+
+    .texto1 h2 {
+        font-size: 1.75rem;
+    }
+
+    .Botones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cuadro {
+        width: 22rem;
+    }
+
+    .divLibros {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divResnick,
+    .divSerway {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .texto1 h1 {
+        font-size: 3rem;
+    }
+
+    .texto1 h2 {
+        font-size: 1.5rem;
+    }
+
+    .Botones button.boton1,
+    .Botones button.boton2 {
+        width: 18rem;
+        font-size: 1.5rem;
+    }
+
+    .cuadro {
+        width: 90%;
+        font-size: 1.25rem;
+    }
+
+    .divTitulo h1 {
+        font-size: 3rem;
+    }
+
+    .divResnick h2,
+    .divSerway h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 30rem) {
+    .texto1 h1 {
+        font-size: 2.5rem;
+    }
+
+    .texto1 h2 {
+        font-size: 1.25rem;
+    }
+
+    .Botones button.boton1,
+    .Botones button.boton2 {
+        width: 16rem;
+        font-size: 1.25rem;
+    }
+
+    .divTitulo h1 {
+        font-size: 2.5rem;
+    }
+
+    .divResnick h2,
+    .divSerway h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Header y navegación */
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 1rem 2rem;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1024px) {
+    .contenedor {
+        padding: 1rem;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor {
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+}
+
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 12rem;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 101;
+}
+
+.menu-button span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #6b102e;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Ocultar el menú por defecto en móviles */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+/* Botón hamburguesa */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hamburger-lines span {
+    display: block;
+    width: 2rem;
+    height: 0.25rem;
+    background-color: #6b102e;
+    border-radius: 0.125rem;
+    transition: all 0.3s ease;
+}
+
+/* Mostrar el botón hamburguesa en vista móvil */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .contenedor {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+      display: none;
+    }
+}

@@ -1,0 +1,82 @@
+.instr-main {
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.instr-content {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  overflow-y: auto;
+  background-color: white;
+}
+
+.instr-title {
+  font-size: 3rem;
+  color: #6b102e;
+  margin-bottom: 2rem;
+}
+
+.instr-intro {
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.instr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.instr-card {
+  background-color: #6b102e;
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(107, 16, 46, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.instr-card h3 {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.instr-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.instr-list li {
+  margin: 0.5rem 0;
+}
+
+.instr-tips {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .instr-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .instr-title {
+    font-size: 2rem;
+  }
+
+  .instr-card {
+    margin: 1rem;
+  }
+}

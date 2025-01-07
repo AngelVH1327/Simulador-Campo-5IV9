@@ -1,0 +1,53 @@
+
+.desktop-logo {
+  order: -1; /* Moves logo to the start */
+  margin-right: auto; /* Pushes other elements to the right */
+}
+
+.logo {
+  width: 12rem;
+  height: auto;
+}
+
+.menu-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* Increased spacing between menu items */
+  margin-left: 4rem; /* Space after logo */
+}
+
+.menu-item {
+  color: #6b102e;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+.menu-item:hover {
+  background-color: #6b102e;
+  color: white;
+  border-radius: 2rem;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Mobile styles remain the same but with improved spacing */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: block;
+    order: -1;
+  }
+
+  .menu-content {
+    margin-left: 0;
+    gap: 1rem;
+  }
+
+  .desktop-logo {
+    margin: 0 auto;
+  }
+}
