@@ -355,7 +355,7 @@ export class SimulacionCampoElectrico {
 
   private createFieldLines(): void {
     this.charges.forEach(charge => {
-      const numLines = 16;
+      const numLines = 5;
       const radius = 0.3;
       for (let i = 0; i < numLines; i++) {
         for (let j = 0; j < numLines; j++) {
