@@ -4,6 +4,9 @@ body {
   touch-action: none;
 }
 
+
+
+
 #gui-container {
   position: absolute;
   z-index: 1000;
@@ -14,7 +17,7 @@ body {
   #gui-container {
     width: 10%;
     background: rgba(0, 0, 0, 0.8);
-    bottom: 50%;
+    bottom: 40%;
     left: 45%;
   }
   

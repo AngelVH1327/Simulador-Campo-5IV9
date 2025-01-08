@@ -192,6 +192,9 @@ export class SimulacionCampoElectrico {
       .name('Potencial')
       .listen();
 
+      
+
+
     [visualizacionFolder, cargasFolder, medicionFolder, resultadosFolder].forEach(folder => folder.open());
   }
 
