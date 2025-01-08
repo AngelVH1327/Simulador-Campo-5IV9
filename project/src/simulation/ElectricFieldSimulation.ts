@@ -188,10 +188,7 @@ export class SimulacionCampoElectrico {
     resultadosFolder.add(this.settings, 'magnitudCampo')
       .name('Campo Eléctrico')
       .listen();
-    resultadosFolder.add(this.settings, 'potencialElectrico')
-      .name('Potencial')
-      .listen();
-
+   
       
 
 
