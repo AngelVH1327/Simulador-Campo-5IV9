@@ -1,66 +1,6 @@
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    overflow: hidden;
-  }
-  
+ 
   canvas {
   width: 100vw;
   height: 100vh;
   position: relative; /* Esto es necesario si quieres que el canvas cubra toda la ventana */
-}
-
-#gui-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(28, 28, 35, 0.9);
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-#gui-container.hidden {
-  transform: translateX(110%);
-  opacity: 0;
-}
-
-/* Botón para mostrar/ocultar controles */
-#toggle-gui {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: linear-gradient(45deg, #4a90e2, #357abd);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  z-index: 1000;
-}
-
-#toggle-gui:hover {
-  background: linear-gradient(45deg, #357abd, #2868a0);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-  #gui-container {
-    transform: translateX(110%);
-    opacity: 0;
-  }
-  
-  #gui-container.visible {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
