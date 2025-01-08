@@ -20,6 +20,7 @@ export const Instrucciones = () => {
         <div className="instr-content">
           <h1 className="instr-title">Instrucciones</h1>
           <p className="instr-intro">Sigue estos sencillos pasos para utilizar el simulador y observar los campos eléctricos generados por las cargas:</p>
+          <p className="instr-intro">Nota: En la parte de las superficies equipotenciales , el equipo decidio representar los cascarones o esferas que ocurren en el fenomeno fisico por elipses giratorias en las cargas</p>
 
           <div className="instr-grid">
             <div className="instr-card">
