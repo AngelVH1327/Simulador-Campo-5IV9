@@ -15,7 +15,7 @@ export const Introduccion = () => {
     <div className="box"></div>
     <div className="principal">
     <div className="texto1">
-        <h1>Simuladoor de Campo Eléctrico</h1>
+        <h1>Simulador de Campo Eléctrico</h1>
         <h2>Visualiza y comprende el comportamiento de los campos eléctricos generados por múltiples cargas puntuales. 
             Ingresa hasta dos cargas de diferentes magnitudes y signos, para observar cómo se distribuyen las líneas de campo en el espacio, 
             y cómo interactúan entre sí.</h2>
