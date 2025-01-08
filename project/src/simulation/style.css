@@ -4,3 +4,21 @@
   height: 100vh;
   position: relative; /* Esto es necesario si quieres que el canvas cubra toda la ventana */
 }
+#gui-container {
+  transition: all 0.3s ease;
+}
+
+/* Estilos específicos para móvil */
+@media (max-width: 768px) {
+  #gui-container .dg.main {
+      font-size: 14px; /* Texto más grande para móvil */
+  }
+  
+  #gui-container .dg .c {
+      width: 60% !important; /* Controles más anchos */
+  }
+  
+  #gui-container .dg .property-name {
+      width: 40% !important;
+  }
+}

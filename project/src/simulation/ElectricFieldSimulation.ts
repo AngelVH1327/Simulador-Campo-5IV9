@@ -63,9 +63,13 @@ export class SimulacionCampoElectrico {
     const container = document.createElement('div');
     container.id = 'gui-container';
     container.style.position = 'absolute';
+    container.style.zIndex = '1000'; // Asegurar que esté por encima de otros elementos
+    container.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Fondo semi-transparente
+    container.style.padding = '10px';
     document.body.appendChild(container);
     return container;
-  }
+}
+
 
   private init(): void {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -498,32 +502,37 @@ export class SimulacionCampoElectrico {
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
     
-    if (width <= 768) {
-      this.camera.position.z = 10;
-      this.camera.fov = 75;
-    } else {
-      this.camera.position.z = 7;
-      this.camera.fov = 60;
-    }
-    this.camera.updateProjectionMatrix();
-    
     const guiContainer = document.getElementById('gui-container');
     if (guiContainer) {
-      if (width <= 768) {
-        guiContainer.style.width = '100%';
-        guiContainer.style.bottom = '0';
-        guiContainer.style.left = '0';
-        guiContainer.style.top = 'auto';
-        guiContainer.style.right = 'auto';
-      } else {
-        guiContainer.style.width = 'auto';
-        guiContainer.style.top = '10px';
-        guiContainer.style.right = '10px';
-        guiContainer.style.bottom = 'auto';
-        guiContainer.style.left = 'auto';
-      }
+        if (width <= 768) {
+            // Ajustes para móvil
+            guiContainer.style.width = '100%';
+            guiContainer.style.maxHeight = '50vh'; // Limitar altura máxima
+            guiContainer.style.overflow = 'auto'; // Permitir scroll
+            guiContainer.style.bottom = '0';
+            guiContainer.style.left = '0';
+            guiContainer.style.top = 'auto';
+            guiContainer.style.right = 'auto';
+            
+            // Ajustar estilo del GUI para móvil
+            const guiElement = guiContainer.querySelector('.dg.main');
+            if (guiElement) {
+                (guiElement as HTMLElement).style.width = '100%';
+                (guiElement as HTMLElement).style.maxWidth = 'none';
+            }
+        } else {
+            // Ajustes para escritorio
+            guiContainer.style.width = 'auto';
+            guiContainer.style.maxHeight = 'none';
+            guiContainer.style.overflow = 'visible';
+            guiContainer.style.top = '10px';
+            guiContainer.style.right = '10px';
+            guiContainer.style.bottom = 'auto';
+            guiContainer.style.left = 'auto';
+        }
     }
-  }
+}
+
 
   private animate(): void {
     requestAnimationFrame(() => this.animate());
