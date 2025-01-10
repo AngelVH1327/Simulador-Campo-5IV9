@@ -7,11 +7,11 @@ export const Instrucciones = () => {
 
       
         <img src="logotipo_ipn.png" className="logo" alt='' />
-        <a href="/Introducion"><div className="menu" style={{ color: 'black' }}>Inicio</div></a>
-        <a href="/Instrucciones"><div className="menu" style={{ color: 'black' }}>Instrucciones</div></a>
-        <a href="/Teoria"><div className="menu" style={{ color: 'black' }}>Teoría</div></a>
-        <a href='/Simulador'><div className='menu' style={{ color: 'black' }}>Simulador</div></a>
-        <a href="/SobreElProyecto"><div className="menu" style={{ color: 'black' }}>Sobre el proyecto</div></a>
+        <a href="/Introducion"><div className="menu" >Inicio</div></a>
+        <a href="/Instrucciones"><div className="menu" >Instrucciones</div></a>
+        <a href="/Teoria"><div className="menu" >Teoría</div></a>
+        <a href='/Simulador'><div className='menu' >Simulador</div></a>
+        <a href="/SobreElProyecto"><div className="menu">Sobre el proyecto</div></a>
       </div>
 
       <div className="box"></div>
